@@ -1,0 +1,39 @@
+CREATE DATABASE db_quitanda; -- criar a pasta em SQL 
+
+USE db_quitanda; -- usamos o db_quitanda e ele fica em negrito e tem outras pastas dentro 
+
+CREATE TABLE tb_produtos(
+    id BIGINT AUTO_INCREMENT, -- bigint não sei quantos produtos temos "muitos itens" o auto_increment é preenchido pelo banco de dados 
+	nome VARCHAR(255) NOT NULL, -- not null não pode ter ausencia do nome pq não cadastra
+	quantidade INT, 
+    datavalidade DATE,
+	preco DECIMAL NOT NULL,
+    PRIMARY KEY (id) -- toda tabela precisa ter um item, coluna prioritaria, serve para fazer o relacionamento 
+);
+
+INSERT INTO tb_produtos(nome, quantidade, datavalidade, preco) 
+VALUES ("tomate",100, "2023-12-15", 8.00);
+INSERT INTO tb_produtos(nome, quantidade, datavalidade, preco) 
+VALUES ("maçã",20, "2023-12-15", 5.00);
+INSERT INTO tb_produtos(nome, quantidade, datavalidade, preco) 
+VALUES ("laranja",50, "2023-12-15", 10.00);
+INSERT INTO tb_produtos(nome, quantidade, datavalidade, preco) 
+VALUES ("banana",200, "2023-12-15", 12.00);
+INSERT INTO tb_produtos(nome, quantidade, datavalidade, preco) 
+VALUES ("uva",1200, "2023-12-15", 30.00);
+INSERT INTO tb_produtos(nome, quantidade, datavalidade, preco) 
+VALUES ("pêra",500, "2023-12-15", 2.99);
+
+SELECT * FROM tb_produtos; -- selecionar todos dados da tabela 
+
+SELECT nome, preco FROM tb_produtos; 
+
+SELECT * FROM tb_produtos WHERE id = 1; -- selecionar todos os dados da tabela tb-produtos ONDE id seja 1 
+
+SELECT * FROM tb_produtos WHERE preco > 5;
+
+ALTER TABLE tb_produtos MODIFY preco DECIMAL (6,2); -- Alterar a estrutura da tabela 
+
+UPDATE tb_produtos SET preco = 2.99 WHERE Id = 6; -- UPDATE todos os produtos serão 2.99 se não tiver WHERE com id 
+
+DELETE FROM tb_produtos WHERE Id = 2; -- excluir os dados da tabela 
